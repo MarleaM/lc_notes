@@ -28,3 +28,18 @@ class Solution:
                 rows[r].add(board[r][c]) #to our current row set, add the value at board[r][c]
                 squares[(r//3, c//3)].add(board[r][c])  #to our current 3x3 subsquare set, add the value at board[r][c]
         return True
+```
+### Breaking Down `cols = collections.defaultdict(set)`
+
+#### 1. `collections.defaultdict`
+- `defaultdict` is a type of dictionary provided by the `collections` module in Python.
+- Unlike a regular dictionary, where accessing a non-existent key raises a `KeyError`, a `defaultdict` automatically provides a default value for any missing key.
+- The type of the default value is specified when creating the `defaultdict`. In this case, it's `set`.
+
+#### 2. `set`
+- `set` is a built-in Python data type that represents a collection of unique elements (like a mathematical set).
+- When a key is accessed in the `defaultdict` that doesn’t exist, a new empty set (`set()`) is automatically created as the default value for that key.
+
+#### 3. So What Does This Line Do?
+- `cols` is a dictionary where each key maps to a set.
+- When you try to access a key in `cols` that doesn’t exist, it will create an empty set for that key automatically.
